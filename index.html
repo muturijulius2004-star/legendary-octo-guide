@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZimLoan - Get a Loan</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+  body{background:#fff;text-align:center;}
+
+  /* TOP MOVING LINE */
+  .ticker-wrap{
+    background:#FFF8DC;
+    overflow:hidden;
+    white-space:nowrap;
+    padding:10px 0;
+    border-bottom:1px solid #ffeaa7;
+  }
+  .ticker{
+    display:inline-block;
+    padding-left:100%;
+    animation: moveLeft 12s linear infinite;
+    color:#B7791F;
+    font-size:16px;
+  }
+  @keyframes moveLeft{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-100%);}
+  }
+  .ticker span{margin-right:10px;}
+
+  .container{padding:35px 20px 20px;max-width:480px;margin:0 auto;}
+
+  /* LOGO TEXT - Zim green, Loan yellow */
+  .logo{font-size:62px;font-weight:900;font-style:italic;letter-spacing:-2px;line-height:1;}
+  .logo .zim{color:#007A1A;}
+  .logo .loan{color:#FFC107;}
+  .logo .sun{color:#D32F2F;font-size:32px;vertical-align:top;}
+
+  h2{font-weight:400;font-size:27px;margin-top:35px;line-height:1.4;color:#222;}
+  h3{font-weight:400;font-size:27px;margin-top:18px;color:#222;}
+  .amount{color:#007A1A;font-size:30px;font-weight:800;}
+  .big100{color:#007A1A;font-size:68px;font-weight:900;line-height:1;}
+
+  .features{text-align:left;margin:25px 0 30px;}
+  .features div{margin:10px 0;font-size:21px;line-height:1.3;color:#222;}
+  .features .gold{color:#E6B800;}
+  .check{color:#007A1A;font-weight:bold;font-size:24px;margin-right:8px;}
+
+  .btn{
+    display:block;
+    background:#007A1A;
+    color:white;
+    text-decoration:none;
+    padding:18px;
+    font-size:22px;
+    border-radius:4px;
+    margin-top:10px;
+  }
+  .btn:hover{background:#005f14;}
+
+  .footer{margin-top:90px;padding-bottom:20px;}
+  .footer a{color:#4A90E2;font-size:21px;}
+</style>
+</head>
+<body>
+
+<!-- MOVING TOP LINE -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>🔊 Never send money to Personal or unknown numbers/accounts.</span>
+    <span>🔊 Never send money to Personal or unknown numbers/accounts.</span>
+    <span>🔊 Never send money to Personal or unknown numbers/accounts.</span>
+  </div>
+</div>
+
+<div class="container">
+  <!-- LOGO -->
+  <div class="logo"><span class="zim">Zim</span><span class="loan">Loan</span><span class="sun">☀️</span></div>
+
+  <h2>Your friend KUDAKWASHE has invited you to</h2>
+  <h3>Get a Loan For</h3>
+
+  <div style="margin-top:15px;">
+    <span class="amount">up to USD</span>
+    <span class="big100">100</span>
+  </div>
+
+  <div class="features">
+    <div><span class="check gold">✔</span><span class="gold">Fully registered microfinance institution</span></div>
+    <div><span class="check">✔</span> No paperwork</div>
+    <div><span class="check">✔</span> Apply 100% via mobile</div>
+    <div><span class="check">✔</span> Receive mobile money within 5 minutes</div>
+  </div>
+
+  <a href="#" class="btn">Get my Loan 👉</a>
+
+  <div class="footer">
+    <a href="#">Facing Difficulty? Contact Us!</a>
+  </div>
+</div>
+
+</body>
+  </html>
