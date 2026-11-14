@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZimLoan - Loan Application</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6f8;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 460px;
+    background: white;
+    padding: 35px 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+    animation: appear 0.7s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    text-align: center;
+    font-size: 43px;
+    font-weight: bold;
+    margin-bottom: 65px;
+    letter-spacing: -2px;
+}
+
+.logo .zim {
+    color: #07852d;
+}
+
+.logo .loan {
+    color: #e9aa00;
+}
+
+h2 {
+    text-align: center;
+    color: #173d85;
+    font-size: 29px;
+    margin-bottom: 55px;
+}
+
+.form-group {
+    margin-bottom: 34px;
+}
+
+label {
+    display: block;
+    font-size: 17px;
+    color: #33394b;
+    margin-bottom: 12px;
+}
+
+input {
+    width: 100%;
+    height: 60px;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    font-size: 17px;
+    outline: none;
+    transition: 0.3s;
+    background: #fff;
+}
+
+input:focus {
+    border-color: #1760b0;
+    box-shadow: 0 0 5px rgba(23,96,176,0.15);
+}
+
+input::placeholder {
+    color: #a4a4a4;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 5px 0 55px;
+    font-size: 15px;
+    color: #33394b;
+}
+
+.checkbox input {
+    width: 21px;
+    height: 21px;
+    flex-shrink: 0;
+    accent-color: #0754a3;
+}
+
+button {
+    width: 100%;
+    height: 72px;
+    background: #0755a5;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 7px 15px rgba(0,70,150,0.2);
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #064486;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.message {
+    display: none;
+    text-align: center;
+    padding: 20px 10px;
+    animation: appear 0.5s ease;
+}
+
+.message h2 {
+    margin: 15px 0;
+}
+
+.message p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.notice {
+    font-size: 12px;
+    color: #777;
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media(max-width: 400px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    .logo {
+        font-size: 37px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        <span class="zim">Zim</span><span class="loan">Loan</span>
+    </div>
+
+    <form id="loanForm">
+
+        <h2>Loan Application</h2>
+
+        <div class="form-group">
+            <label for="fullname">Full name</label>
+            <input
+                type="text"
+                id="fullname"
+                placeholder="Enter full name"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+                type="tel"
+                id="phone"
+                placeholder="0785345678"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="nationalid">National ID</label>
+            <input
+                type="text"
+                id="nationalid"
+                placeholder="Enter National ID"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="amount">Loan Amount (USD)</label>
+            <input
+                type="number"
+                id="amount"
+                placeholder="Enter loan amount"
+                min="1"
+                step="0.01"
+                required>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" id="confirm" required>
+            <label for="confirm">
+                I confirm that the information provided is true.
+            </label>
+        </div>
+
+        <button type="submit">
+            SUBMIT APPLICATION
+        </button>
+
+        
+        </p>
+
+    </form>
+
+    <div class="message" id="successMessage">
+        <div style="font-size:55px;color:#07852d;">✓</div>
+
+        <h2>Application Received!</h2>
+
+        <p>
+            
+        </p>
+
+        <p style="margin-top:15px;">
+            
+        </p>
+
+        
+    </div>
+
+</div>
+
+<script>
+const form = document.getElementById("loanForm");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("fullname").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const nationalID = document.getElementById("nationalid").value.trim();
+    const amount = Number(document.getElementById("amount").value);
+    const confirmed = document.getElementById("confirm").checked;
+
+    if (!name || !phone || !nationalID || amount <= 0 || !confirmed) {
+        alert("Please complete all fields correctly.");
+        return;
+    }
+
+    form.style.display = "none";
+
+    document.getElementById("successMessage").style.display = "block";
+});
+</script>
+
+</body>
+  </html>
