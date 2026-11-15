@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZimLoan - Demo Application</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6f8;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.page {
+    width: 100%;
+}
+
+#page3, #page4 {
+    display: none;
+}
+
+.demo-banner {
+    background: #fff3cd;
+    color: #765600;
+    padding: 12px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* PAGE 2 */
+
+.container {
+    width: 100%;
+    max-width: 460px;
+    background: white;
+    padding: 35px 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+    animation: appear 0.7s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    text-align: center;
+    font-size: 43px;
+    font-weight: bold;
+    margin-bottom: 45px;
+    letter-spacing: -2px;
+}
+
+.logo .zim {
+    color: #07852d;
+}
+
+.logo .loan {
+    color: #e9aa00;
+}
+
+h2 {
+    text-align: center;
+    color: #173d85;
+    font-size: 29px;
+    margin-bottom: 35px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    color: #33394b;
+    margin-bottom: 12px;
+}
+
+input {
+    width: 100%;
+    height: 60px;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    font-size: 17px;
+    outline: none;
+    background: #fff;
+}
+
+input:focus {
+    border-color: #1760b0;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0 35px;
+    font-size: 14px;
+}
+
+.checkbox input {
+    width: 21px;
+    height: 21px;
+}
+
+button {
+    width: 100%;
+    height: 70px;
+    background: #0755a5;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.notice {
+    font-size: 12px;
+    color: #777;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* PAGE 3 */
+
+#page3 {
+    min-height: 100vh;
+    background: white;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 500px;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px 25px;
+    overflow: hidden;
+    background: linear-gradient(
+        150deg,
+        white 65%,
+        #effff1 100%
+    );
+}
+
+.top-design {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 650px;
+    height: 210px;
+    border-radius: 50%;
+    border-bottom: 20px solid #008b24;
+    transform: rotate(-13deg);
+    pointer-events: none;
+}
+
+.top-design::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-bottom: 14px solid #ffb900;
+    border-radius: 50%;
+    top: 14px;
+}
+
+.login-logo {
+    margin-top: 150px;
+    font-size: clamp(48px, 13vw, 76px);
+    font-weight: 800;
+    letter-spacing: -4px;
+    white-space: nowrap;
+}
+
+.login-logo span:first-child {
+    color: #00852a;
+}
+
+.login-logo span:last-child {
+    color: #f5ae00;
+}
+
+.heading {
+    margin-top: 85px;
+    color: #123d91;
+    font-size: 34px;
+    text-align: center;
+}
+
+.demo-pin {
+    width: 100%;
+    max-width: 300px;
+    height: 75px;
+    margin-top: 30px;
+    border: 2px solid #d6d6d6;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 12px;
+}
+
+.login-btn {
+    width: 100%;
+    height: 75px;
+    margin-top: 30px;
+    border-radius: 25px;
+    background: linear-gradient(100deg,#00a522,#00852a);
+    font-size: 26px;
+}
+
+.shield {
+    margin-top: 55px;
+    width: 190px;
+    height: 190px;
+    background: #c8f1d5;
+    clip-path: polygon(
+        50% 0%, 100% 25%, 90% 75%,
+        50% 100%, 10% 75%, 0% 25%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+}
+
+/* PAGE 4 */
+
+#page4 {
+    min-height: 100vh;
+    background: #eaf3ff;
+}
+
+.otp-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #eaf3ff;
+}
+
+.otp-card {
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    border-radius: 25px;
+    padding: 35px 22px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+
+.otp-icon {
+    font-size: 90px;
+    color: #397df0;
+    margin-bottom: 25px;
+}
+
+.otp-card h2 {
+    margin-bottom: 20px;
+    color: #202b42;
+}
+
+.otp-input {
+    width: 100%;
+    height: 65px;
+    border: 2px solid #397df0;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 27px;
+    letter-spacing: 12px;
+    margin: 30px 0;
+}
+
+.otp-button {
+    background: #397df0;
+    border-radius: 15px;
+}
+
+/* SUCCESS */
+
+#successScreen {
+    display: none;
+    width: 100%;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#successScreen h1 {
+    color: #07852d;
+    font-size: 35px;
+    margin: 20px;
+}
+
+.success-icon {
+    font-size: 85px;
+    color: #07852d;
+}
+
+@media(max-width:400px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    .logo {
+        font-size: 37px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 2 -->
+
+<div class="page" id="page2">
+
+<div class="container">
+
+<div class="demo-banner">
+    DEMONSTRATION ONLY<br>
+    NOT A REAL FINANCIAL SERVICE
+</div>
+
+<div class="logo">
+    <span class="zim">Zim</span><span class="loan">Loan</span>
+</div>
+
+<form id="loanForm" novalidate>
+
+<h2>Loan Application</h2>
+
+<div class="form-group">
+<label>Demo Phone Reference</label>
+<input type="text" placeholder="Enter fictional test value" required>
+</div>
+
+<div class="form-group">
+<label>Demo Applicant Reference</label>
+<input type="text" placeholder="Enter sample reference" required>
+</div>
+
+<div class="form-group">
+<label>Loan Amount (USD)</label>
+<input type="number" placeholder="Enter demo amount" min="1" required>
+</div>
+
+<div class="checkbox">
+<input type="checkbox" id="confirm" required>
+<label for="confirm">
+I understand this is a demonstration.
+</label>
+</div>
+
+<button type="submit">
+SUBMIT APPLICATION
+</button>
+
+</form>
+
+<p class="notice">
+ZIMLOAN EDUCATIONAL MOCKUP.<br>
+Only fictional demonstration information should be used.
+No information is transmitted or saved.
+</p>
+
+</div>
+</div>
+
+<!-- PAGE 3 -->
+
+<div class="page" id="page3">
+
+<div class="login-container">
+
+<div class="top-design"></div>
+
+<div class="demo-banner" style="margin-top:20px;width:100%;">
+    SAFE DEMONSTRATION LOGIN
+</div>
+
+<div class="login-logo">
+<span>Zim</span><span>Loan</span>
+</div>
+
+<h1 class="heading">
+Secured Login 🔒
+</h1>
+
+<p style="margin-top:25px;text-align:center;color:#555;">
+ENTER FOUR-DIGIT DEMO CODE
+</p>
+
+<input
+id="Pin"
+class="demo-pin"
+type="text"
+inputmode="numeric"
+maxlength="4"
+placeholder="••••"
+autocomplete="off"
+aria-label="Four digit demo code"
+>
+
+<button class="login-btn" onclick="showPin()">
+Continue
+</button>
+
+<div class="shield">
+🔒
+</div>
+
+<p class="notice">
+ZIMLOAN™ EDUCATIONAL DEMONSTRATION.
+No banking credentials are requested.
+</p>
+
+</div>
+</div>
+
+<!-- PAGE 4 -->
+
+<div class="page" id="page4">
+
+<div class="otp-container">
+
+<div class="otp-card" id="otpCard">
+
+<div class="demo-banner">
+DEMO VERIFICATION<br>
+NO REAL OTP IS SENT
+</div>
+
+<div class="otp-icon">◎</div>
+
+<h2>Verify Demo Code</h2>
+
+<p>Enter any six-digit demonstration code.</p>
+
+<input
+id="Otp"
+class="otp-input"
+type="text"
+inputmode="numeric"
+maxlength="6"
+placeholder="••••••"
+autocomplete="off"
+aria-label="Six digit demo code"
+>
+
+<p style="font-size:12px;color:#777;">
+This is a simulated verification screen.
+</p>
+
+<button class="otp-button" onclick="verifyOtp()">
+Verify Demo Code
+</button>
+
+<p id="otpError" style="color:red;margin-top:15px;"></p>
+
+</div>
+
+<!-- SUCCESS SCREEN -->
+
+<div id="successScreen">
+
+<div class="success-icon">✓</div>
+
+<h1>DEMONSTRATION COMPLETE!</h1>
+
+<p style="line-height:1.7;color:#555;">
+You have successfully completed the ZimLoan
+educational application simulation.
+</p>
+
+<p class="notice">
+NO REAL LOAN WAS APPROVED.<br>
+NO PERSONAL INFORMATION WAS TRANSMITTED
+OR SAVED.
+</p>
+
+</div>
+
+</div>
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* PAGE 2 TO PAGE 3 */
+
+document.getElementById("loanForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const inputs = this.querySelectorAll(
+        "input[required]"
+    );
+
+    for (const input of inputs) {
+
+        if (!input.value.trim()) {
+            alert("Please complete all demonstration fields.");
+            input.focus();
+            return;
+        }
+
+        if (input.type === "checkbox" && !input.checked) {
+            alert("Please confirm this is a demonstration.");
+            return;
+        }
+
+    }
+
+    document.getElementById("page2").style.display = "none";
+    document.getElementById("page3").style.display = "block";
+
+    document.body.style.padding = "0";
+    document.body.style.alignItems = "flex-start";
+    document.body.style.background = "#ffffff";
+
+    window.scrollTo(0,0);
+
+});
+
+/* PAGE 3 TO PAGE 4 */
+
+function showPin() {
+
+    const pin = document.getElementById("Pin").value;
+
+    if (!/^\d{4}$/.test(pin)) {
+        alert("Enter exactly four digits for the demo.");
+        return;
+    }
+
+    document.getElementById("Pin").value = "";
+
+    document.getElementById("page3").style.display = "none";
+    document.getElementById("page4").style.display = "block";
+
+    window.scrollTo(0,0);
+
+}
+
+/* PAGE 4 TO SUCCESS */
+
+function verifyOtp() {
+
+    const otp = document.getElementById("Otp").value;
+
+    if (!/^\d{6}$/.test(otp)) {
+
+        document.getElementById("otpError").textContent =
+        "Please enter exactly six digits.";
+
+        return;
+    }
+
+    document.getElementById("Otp").value = "";
+
+    document.getElementById("otpCard").style.display = "none";
+
+    document.getElementById("successScreen").style.display = "block";
+
+    window.scrollTo(0,0);
+
+}
+
+</script>
+
+</body>
+</html>
