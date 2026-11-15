@@ -247,27 +247,25 @@ button:active {
 </div>
 
 <script>
-const form = window.location.href='step3.html';("loanForm");
+const form = document.getElementById("loanForm");
 
 form.addEventListener("submit", function(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const name = document.getElementById("fullname").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const nationalID = document.getElementById("nationalid").value.trim();
-    const amount = Number(document.getElementById("amount").value);
-    const confirmed = document.getElementById("confirm").checked;
+  const name = document.getElementById("fullname").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const nationalID = document.getElementById("nationalID").value.trim();
+  const amount = Number(document.getElementById("amount").value);
+  const confirmed = document.getElementById("confirm").checked;
 
-    if (!name || !phone || !nationalID || amount <= 0 || !confirmed) {
-        alert("Please complete all fields correctly.");
-        return;
-    }
+  if (!name || !phone || !nationalID || amount <= 0 || !confirmed) {
+    alert("Please complete all fields correctly.");
+    return;
+  }
 
-    form.style.display = "none";
-
-    window.location.href='step3.html';.display = "block";
+  window.location.href = 'step3.html';
 });
-</script>
+    </script>
 
 </body>
   </html>
