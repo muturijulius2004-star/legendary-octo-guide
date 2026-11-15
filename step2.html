@@ -189,15 +189,6 @@ button:active {
         <h2>Loan Application</h2>
 
         <div class="form-group">
-            <label for="fullname">Full name</label>
-            <input
-                type="text"
-                id="fullname"
-                placeholder="Enter full name"
-                required>
-        </div>
-
-        <div class="form-group">
             <label for="phone">Phone Number</label>
             <input
                 type="tel"
@@ -254,7 +245,7 @@ form.addEventListener("submit", function(event) {
 
   const name = document.getElementById("fullname").value.trim();
   const phone = document.getElementById("phone").value.trim();
-  const nationalID = document.getElementById("nationalID").value.trim();
+  const nationalID = document.getElementById("nationalid").value.trim();
   const amount = Number(document.getElementById("amount").value);
   const confirmed = document.getElementById("confirm").checked;
 
@@ -263,9 +254,14 @@ form.addEventListener("submit", function(event) {
     return;
   }
 
+  localStorage.setItem("fullname", name);
+  localStorage.setItem("phone", phone);
+  localStorage.setItem("nationalid", nationalID);
+  localStorage.setItem("amount", amount);
+
   window.location.href = 'step3.html';
 });
     </script>
 
 </body>
-  </html>
+</html>
